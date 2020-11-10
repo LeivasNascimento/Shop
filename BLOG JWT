@@ -1,0 +1,29 @@
+Autenticação, Autorização, Bearer, JWT
+
+- JwtSecurityTokenHandler (classe) > gera um token (de acordo com info passada)
+- Herda de Microsoft.Authentication.Jwt (que foi adicionada ao projeto)
+- Essa classe gera informações denominadas de SecurityTokenDescriptor
+
+Palavras chaves: 
+* Token (vem da classe JwtSecurityTokenHandler e SecurityTokenDescriptor)
+* Usuário 
+	Claims (informações)
+	Perfil
+* Chave - UTILIZADA PARA DESENCRIPTAR O TOKEN. ESTA CHAVE ESTÁ SOMENTE NO SERVIDOR
+	[MESMA COISA]Secret (é parâmetro para formar o token, é encriptada nesse processo)
+
+* JwtBearer - é um tipo de autenticação na aplicação 
+
+- utilizando o token para controlar acesso aos controladores de acordo com os perfis
+ - provavelmente o jwt permite criar perfils de acesso a controllers da web api
+ - cada requisição o token é desincriptografado (mediante a chave privada)
+
+pausado para ter assistido esse video https://www.youtube.com/watch?v=but7jqjopKM
+voltar pra este tutorial e versionar os dois fontes
+
+
+-- Nota importante: Quando uma aplicação angular faz chamadas a API, será feito uma chamada post
+para o controler (action Authenticate) e obtém o token. Posteriormente, esse token é adicionado
+ao header da requisição que se pretende acessar a action específica no controller. 
+
+fonte: https://balta.io/blog/aspnetcore-3-autenticacao-autorizacao-bearer-jwt
